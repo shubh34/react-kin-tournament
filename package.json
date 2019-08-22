@@ -1,0 +1,60 @@
+{
+  "name": "react-kin-tournament",
+  "version": "1.0.0",
+  "description": "This is react application for demo tournament",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "webpack-dev-server --open --mode development",
+    "build": "webpack --mode production",
+    "format": "prettier --config ./.prettierrc --write ./src/**/*.js",
+    "lint": "esw ./src --color"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shubh34/react-kin-tournament"
+  },
+  "keywords": [
+    "demo"
+  ],
+  "author": "Shubham",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shubh34/react-kin-tournament/issues"
+  },
+  "homepage": "https://github.com/shubh34/react-kin-tournament#readme",
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.1.0",
+    "redux": "^4.0.4",
+    "redux-api-middleware": "^3.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.2",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-watch": "^6.0.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^24.8.0",
+    "prettier": "^1.18.2",
+    "prop-types": "^15.7.2",
+    "react-test-renderer": "^16.9.0",
+    "redux-devtools-extension": "^2.13.8",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.8.0"
+  }
+}
