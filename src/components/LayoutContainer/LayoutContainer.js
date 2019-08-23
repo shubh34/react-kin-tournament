@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { fetchTournamentLeaders, fetchTournamentPrizes } from '../../states/tournament/action';
+import { fetchTournamentLeaders, fetchTournamentPrizes } from '../../states/tournament/actions';
 import { getLeaders, getPrizes } from '../../states/tournament/selectors';
 
 
