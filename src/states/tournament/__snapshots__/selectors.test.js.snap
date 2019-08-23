@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`selectors getLeaders should return leaders 1`] = `Array []`;
+
+exports[`selectors getPrizes should return prizes 1`] = `Array []`;

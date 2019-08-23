@@ -13,6 +13,7 @@ module.exports = {
 			},
 		],
 	},
+	devtool: 'inline-source-map',
 	plugins: [
 		new CleanWebpackPlugin(),
 		new HtmlWebpackPlugin({
