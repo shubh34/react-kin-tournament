@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/shubh34/react-kin-tournament#readme",
   "dependencies": {
+    "lodash": "^4.17.15",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
@@ -48,6 +49,7 @@
     "eslint-watch": "^6.0.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "isomorphic-fetch": "^2.2.1",
     "jest": "^24.8.0",
     "prettier": "^1.18.2",
     "prop-types": "^15.7.2",

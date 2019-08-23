@@ -1,3 +1,5 @@
-import reducer from '../../states/temp/reducer';
+import { combineReducers } from 'redux';
+import tournament from '../../states/tournament/reducer';
+import userDetails from '../../states/userDetails/reducer';
 
-export default reducer;
+export default combineReducers({ tournament, userDetails });
