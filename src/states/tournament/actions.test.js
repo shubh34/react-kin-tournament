@@ -7,5 +7,4 @@ describe('Tournament actions', () => {
 	it('should create action to fetch prizes', () => {
 		expect(fetchTournamentPrizes()).toMatchSnapshot();
 	});
-})
-;
+});
