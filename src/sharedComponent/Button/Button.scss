@@ -1,0 +1,11 @@
+.c-button {
+    padding: 24px;
+    font-size: 32px;
+    font-family: sans-serif;
+    cursor: pointer;
+    outline:none;
+    border:none;
+    &--active {
+        font-weight:bold;
+    }
+}

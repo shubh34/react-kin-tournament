@@ -12,7 +12,7 @@ export const getLeaders = state => get(state, 'tournament.leaders', []);
 export const getLeadersWithPosition = createSelector(getLeaders,
 	leaders => leaders.map((leader, index) => ({
 		...leader,
-		postion: index + 1,
+		position: index + 1,
 	})));
 
 export const isUserPlayingTournament = state => getLeaders(state).some(leader => leader.playerId === getUserId(state));
@@ -36,5 +36,5 @@ export const getTopLeaders = (state) => {
 	if (!!userScore && !topLeadersScore.some(leader => leader.playerId === getUserId(state))) {
 		return [...topLeadersScore.slice(0, (SHOW_TOP_LEADERS_LIMT - 1)), userScore];
 	}
-	return topLeadersScore;
+	return topLeadersScore || [];
 };

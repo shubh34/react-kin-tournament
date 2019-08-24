@@ -1,0 +1,34 @@
+@import '../../../colors';
+.c-table-row {
+    text-align: center;
+    line-height: 80px;
+    background: $lightGray;
+    & :first-child {
+        background: transparent;
+    }
+    th, td {
+        border: none;
+        &:first-child {
+            float: left;
+        } 
+        &:last-child {
+            float: right;
+        }
+    }
+    td {
+        border: none;
+    }
+}
+
+.c-table-row--header {
+   background: transparent;
+}
+.c-table-row--active {
+    background: $green;
+    color: $lightGray
+ }
+ 
+ .c-table-row :first {
+
+    background: transparent;
+ }

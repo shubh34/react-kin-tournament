@@ -23,6 +23,7 @@
         "eol-last": ["error", "always"],
         "no-tabs": 0,
         "jsx-quotes": 0,
+        "react/require-default-props": 0,
         "import/prefer-default-export": 0,
         "max-len": [2, {"code": 200, "tabWidth": 6, "ignoreUrls": true}]
     }

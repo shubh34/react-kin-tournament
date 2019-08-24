@@ -1,0 +1,12 @@
+@import '../../colors';
+
+.c-tab-button {
+    width: 50%;
+    background: $lightGray;
+    color: white;
+    font-weight: bold;
+    &--active {
+        background-color: $green;
+        color: $darkGray;
+    }
+}
