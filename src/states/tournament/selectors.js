@@ -1,40 +1,60 @@
 import { createSelector } from 'reselect';
 import get from 'lodash/get';
+import reverse from 'lodash/reverse';
 import head from 'lodash/head';
 import findIndex from 'lodash/findIndex';
 import { getUserId } from '../userDetails/selectors';
 import { SHOW_TOP_LEADERS_LIMT } from '../../configs/config';
 
-export const getPrizes = state => get(state, 'tournament.prizes', []);
+export const getPrizeSelector = state => get(state, 'tournament.prizes', []);
 
-export const getLeaders = state => get(state, 'tournament.leaders', []);
+export const getLeadersSelector = state => get(state, 'tournament.leaders', []);
 
-export const getLeadersWithPosition = createSelector(getLeaders,
+export const getPrizes = createSelector(getPrizeSelector, prizes => prizes.map((prize) => {
+	const postionRange = (prize.toPosition - prize.fromPosition) > 0 ? `${prize.fromPosition}-${prize.toPosition}` : `${prize.fromPosition}`;
+	return {
+		...prize,
+		range: postionRange,
+	};
+}));
+
+export const getLeadersWithPosition = createSelector(getLeadersSelector,
 	leaders => leaders.map((leader, index) => ({
 		...leader,
-		postion: index + 1,
+		position: index + 1,
 	})));
 
-export const isUserPlayingTournament = state => getLeaders(state).some(leader => leader.playerId === getUserId(state));
+export const isUserPlayingTournament = createSelector(getLeadersSelector, getUserId, (leaders, userId) => leaders.some(leader => leader.playerId === userId));
 
-export const isUserAtTopPostion = state => get(head(getLeadersWithPosition(state)), 'playerId') === getUserId(state);
+export const isUserAtTopPostion = createSelector(getLeadersWithPosition, getUserId, (getLeadersWithTheirPosition, userId) => get(head(getLeadersWithTheirPosition), 'playerId') === userId);
 
 
-export const getUserScore = state => getLeadersWithPosition(state).find(leader => leader.playerId === getUserId(state));
+export const getUserScore = createSelector(getLeadersWithPosition, getUserId, (getLeadersWithTheirPosition, userId) => getLeadersWithTheirPosition.find(leader => leader.playerId === userId));
 
 // Need to update
-export const getUserNextAvailabelPrize = (state) => {
-	const usersPostion = findIndex(getLeadersWithPosition(state), { playerId: getUserId(state) });
-	const userPostionToBeComparedWith = usersPostion > SHOW_TOP_LEADERS_LIMT ? SHOW_TOP_LEADERS_LIMT : usersPostion - 1;
-	return get(getLeadersWithPosition(state)[userPostionToBeComparedWith], 'score', 0) - get(getUserScore(state), 'score', 0);
+export const positionToReachForNextPrize = (prizes, position) => {
+	const reversedPrizeList = [...prizes].reverse();
+
+	return get(reversedPrizeList.find(prize => prize.fromPosition < position), 'toPosition');
 };
 
-export const getTopLeaders = (state) => {
-	const leaders = getLeadersWithPosition(state);
-	const topLeadersScore = leaders.slice(0, SHOW_TOP_LEADERS_LIMT);
-	const userScore = getUserScore(state);
-	if (!!userScore && !topLeadersScore.some(leader => leader.playerId === getUserId(state))) {
-		return [...topLeadersScore.slice(0, (SHOW_TOP_LEADERS_LIMT - 1)), userScore];
+
+export const getUserNextAvailabelPrize = createSelector(getLeadersWithPosition, getPrizes, getUserScore, getUserId, (leadersWithTheirPostion, prizes, userScore, userId) => {
+	const usersPosition = findIndex(leadersWithTheirPostion, { playerId: userId });
+	const userPostionToBeComparedWith = positionToReachForNextPrize(prizes, usersPosition);
+	return get(leadersWithTheirPostion[userPostionToBeComparedWith - 1], 'score', 0) - get(userScore, 'score', 0) + 1;
+});
+
+
+export const getPriceOnPosition = (prizes, position) => get(prizes.find(prize => (prize.fromPosition <= position && prize.toPosition >= position)), 'prize', '-');
+
+export const getTopLeaders = createSelector(getLeadersWithPosition, getPrizes, getUserScore, getUserId, (getLeadersWithTheirPosition, prizes, userScore, userId) => {
+	let topLeadersScore = getLeadersWithTheirPosition.slice(0, SHOW_TOP_LEADERS_LIMT);
+	if (!!userScore && !topLeadersScore.some(leader => leader.playerId === userId)) {
+		topLeadersScore = [...topLeadersScore.slice(0, (SHOW_TOP_LEADERS_LIMT - 1)), userScore];
 	}
-	return topLeadersScore;
-};
+	return topLeadersScore.map(leadScorer => ({
+		...leadScorer,
+		prize: getPriceOnPosition(prizes, leadScorer.position),
+	}));
+});

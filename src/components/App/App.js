@@ -3,14 +3,14 @@ import { Provider } from 'react-redux';
 
 import configureStore from '../../store';
 
-import LayoutContainer from '../LayoutContainer/LayoutContainer';
+import Tournament from '../Tournament/Tournament';
 
 
 const store = configureStore();
 
 const App = () => (
 	<Provider store={store}>
-		<LayoutContainer />
+		<Tournament />
 	</Provider>
 );
 
