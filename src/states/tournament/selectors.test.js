@@ -1,4 +1,4 @@
-import { getPrizes, getLeaders } from './selectors';
+import { getPrizes, getLeadersWithPosition } from './selectors';
 
 
 describe('selectors', () => {
@@ -8,7 +8,7 @@ describe('selectors', () => {
 				leaders: [],
 			},
 		};
-		expect(getLeaders(state)).toMatchSnapshot();
+		expect(getLeadersWithPosition(state)).toMatchSnapshot();
 	});
 
 	it('getPrizes should return prizes', () => {

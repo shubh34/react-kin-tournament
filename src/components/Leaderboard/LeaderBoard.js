@@ -2,18 +2,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Table from '../../sharedComponent/Table';
+import { leaderBoardHeaders } from '../../configs/config';
 
 const LeaderBoard = ({ leaders, userId }) => (
 	<Table>
 
 		<Table.Body>
 			<Table.Row>
-				<Table.Header>Pos</Table.Header>
-				<Table.Header>Score</Table.Header>
-				<Table.Header>Prize</Table.Header>
+				{leaderBoardHeaders.map(header => <Table.Header key={header}>{header}</Table.Header>)}
 			</Table.Row>
 			{leaders.map(leader => (
-				<Table.Row key={leader.playerId} isActive={leader.playerId === userId}>
+				<Table.Row key={leader.position} isActive={leader.playerId === userId}>
 					<Table.Column>
 						{`${leader.position}.`}
 					</Table.Column>
