@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Prizes should render prizes 1`] = `
+<Table>
+  <TableBody>
+    <TableRow>
+      <TableHeader
+        key="Pos"
+      >
+        Pos
+      </TableHeader>
+      <TableHeader
+        key="Prize"
+      >
+        Prize
+      </TableHeader>
+    </TableRow>
+    <TableRow
+      key="1"
+    >
+      <TableColumn>
+        1
+      </TableColumn>
+      <TableColumn>
+        <strong>
+          10836
+        </strong>
+      </TableColumn>
+    </TableRow>
+    <TableRow
+      key="3"
+    >
+      <TableColumn>
+        2-3
+      </TableColumn>
+      <TableColumn>
+        <strong>
+          5483
+        </strong>
+      </TableColumn>
+    </TableRow>
+    <TableRow
+      key="4"
+    >
+      <TableColumn>
+        4-5
+      </TableColumn>
+      <TableColumn>
+        <strong>
+          1079
+        </strong>
+      </TableColumn>
+    </TableRow>
+  </TableBody>
+</Table>
+`;

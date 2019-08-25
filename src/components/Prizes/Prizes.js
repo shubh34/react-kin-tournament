@@ -2,17 +2,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Table from '../../sharedComponent/Table';
+import { prizeBoardHeaders } from '../../configs/config';
 
 const Prizes = ({ prizes }) => (
 	<Table>
 
 		<Table.Body>
 			<Table.Row>
-				<Table.Header>Pos</Table.Header>
-				<Table.Header>Prize</Table.Header>
+				{prizeBoardHeaders.map(header => <Table.Header key={header}>{header}</Table.Header>)}
 			</Table.Row>
 			{prizes.map(prize => (
-				<Table.Row key={prize.fromPostion}>
+				<Table.Row key={prize.fromPosition}>
 					<Table.Column>
 						{prize.range}
 					</Table.Column>

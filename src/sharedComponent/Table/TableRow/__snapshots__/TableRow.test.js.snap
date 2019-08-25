@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableRow renders the active class 1`] = `
+<tr
+  className="c-table-row c-table-row--active"
+>
+  <td>
+    td 
+  </td>
+</tr>
+`;
+
+exports[`TableRow renders without crashing 1`] = `
+<tr
+  className="c-table-row"
+>
+  <td>
+    td 
+  </td>
+</tr>
+`;

@@ -48,7 +48,7 @@ export const createFetchPrizesRSSAAction = () => {
 			],
 		},
 	};
-}
+};
 export const fetchTournamentLeaders = () => (dispatch) => {
 	const fetchLeaderRSSAAction = createFetchLeaderRSSAAction();
 	return dispatch(fetchLeaderRSSAAction).then((response) => {

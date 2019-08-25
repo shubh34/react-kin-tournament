@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TabsLink TabsLink when active 1`] = `
+<Button
+  className="c-tab-button c-tab-button--active"
+  id="TabLink"
+  name="TabLink"
+  onClick={[MockFunction]}
+  type="button"
+/>
+`;
+
+exports[`TabsLink renders without crashing 1`] = `
+<Button
+  className="c-tab-button"
+  id="TabLink"
+  name="TabLink"
+  onClick={[MockFunction]}
+  type="button"
+/>
+`;

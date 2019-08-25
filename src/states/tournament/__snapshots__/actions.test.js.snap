@@ -1,5 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tournament actions should create action to fetch leader 1`] = `[Function]`;
+exports[`Tournament actions should create action to fetch prizes 1`] = `
+Object {
+  "@@redux-api-middleware/RSAA": Object {
+    "endpoint": "https://tournament-api-87.herokuapp.com/prizes",
+    "method": "GET",
+    "types": Array [
+      "GET_TOURNAMENT_PRIZES_REQUEST",
+      Object {
+        "meta": Object {
+          "cacheKey": "GET_TOURNAMENT_PRIZES_REQUEST",
+        },
+        "type": "GET_TOURNAMENT_PRIZES_SUCCESS",
+      },
+      "GET_TOURNAMENT_PRIZES_FAILURE",
+    ],
+  },
+}
+`;
 
-exports[`Tournament actions should create action to fetch prizes 1`] = `[Function]`;
+exports[`Tournament actions should return RSSAA action to fetch leader 1`] = `
+Object {
+  "@@redux-api-middleware/RSAA": Object {
+    "endpoint": "https://tournament-api-87.herokuapp.com/leaderboard",
+    "method": "GET",
+    "types": Array [
+      "GET_TOURNAMENT_LEADERS_REQUEST",
+      Object {
+        "meta": Object {
+          "cacheKey": "GET_TOURNAMENT_LEADERS_REQUEST",
+        },
+        "type": "GET_TOURNAMENT_LEADERS_SUCCESS",
+      },
+      "GET_TOURNAMENT_LEADERS_FAILURE",
+    ],
+  },
+}
+`;

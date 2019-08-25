@@ -4,13 +4,14 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchTournamentLeaders, fetchTournamentPrizes } from '../../states/tournament/actions';
 import {
-	getPrizes, getTopLeaders, isUserAtTopPostion, getUserNextAvailabelPrize,
+	getPrizes, getTopLeaders, isUserInTopPrizeRange, getUserNextAvailabelPrize, isUserPlayingTournament,
 } from '../../states/tournament/selectors';
 import { API_CACHE_TIMER } from '../../configs/config';
 import Tabs from '../../sharedComponent/Tabs';
 import LeaderBoard from '../Leaderboard/LeaderBoard';
 import Prizes from '../Prizes/Prizes';
 import { getUserId } from '../../states/userDetails/selectors';
+import content from './Tournament.content';
 
 export const tourmamentTabs = {
 	LEADERBOARD: 'Leaderboard',
@@ -24,9 +25,13 @@ const mapState = state => ({
 	userId: getUserId(state),
 	prizes: getPrizes(state),
 	leaders: getTopLeaders(state),
-	isUserAtTopPostion: isUserAtTopPostion(state),
+	isUserPlayingTournament: isUserPlayingTournament(state),
+	isUserInTopPrizeRange: isUserInTopPrizeRange(state),
 	userNextAvailabelPrize: getUserNextAvailabelPrize(state),
 });
+
+// Question : should we clear setInterval on unmount
+
 export class Tournament extends Component {
 	constructor(props) {
 		super(props);
@@ -34,11 +39,19 @@ export class Tournament extends Component {
 			activeTab: tourmamentTabs.LEADERBOARD,
 		};
 		this.fetchTournamentDetails = this.fetchTournamentDetails.bind(this);
+		this.onTablinkChange = this.onTablinkChange.bind(this);
 	}
+
 
 	componentDidMount() {
 		this.fetchTournamentDetails();
 		setInterval(this.fetchTournamentDetails, API_CACHE_TIMER);
+	}
+
+	onTablinkChange(event) {
+		this.setState({
+			activeTab: event.target.name,
+		});
 	}
 
 	fetchTournamentDetails() {
@@ -47,19 +60,24 @@ export class Tournament extends Component {
 		fetchPrizes();
 	}
 
+
 	render() {
 		const { activeTab } = this.state;
-		const { leaders, userNextAvailabelPrize, isUserAtTopPostion, userId, prizes } = this.props;
+		const {
+			leaders, userNextAvailabelPrize, isUserInTopPrizeRange, userId, prizes, isUserPlayingTournament,
+		} = this.props;
 		const isLeaderboardActive = activeTab === tourmamentTabs.LEADERBOARD;
+		const userNextAvailabelPrizeText = content.gainNexAvaliablePrizeText.replace(':next-avail-prize', userNextAvailabelPrize);
+		const showNextAvailablePrizeText = isUserPlayingTournament && !isUserInTopPrizeRange;
 		return (
 			<div className="c-tournament">
 				<Tabs>
-					<Tabs.TabsLink name="LeaderBoard" onClick={() => { this.setState({ activeTab: tourmamentTabs.LEADERBOARD }); }} isActive={isLeaderboardActive} />
-					<Tabs.TabsLink name="Prizes" onClick={() => { this.setState({ activeTab: tourmamentTabs.PRIZES }); }} isActive={!isLeaderboardActive} />
+					<Tabs.TabsLink name={tourmamentTabs.LEADERBOARD} onClick={this.onTablinkChange} isActive={isLeaderboardActive} />
+					<Tabs.TabsLink name={tourmamentTabs.PRIZES} onClick={this.onTablinkChange} isActive={!isLeaderboardActive} />
 					<Tabs.TabsContent>
 						{isLeaderboardActive && <LeaderBoard leaders={leaders} userId={userId} />}
-						{!isLeaderboardActive && <Prizes prizes={prizes}  />}
-						{!isUserAtTopPostion && <h2>{`Gain ${userNextAvailabelPrize} points and win the next prize!`}</h2>}
+						{!isLeaderboardActive && <Prizes prizes={prizes} />}
+						{showNextAvailablePrizeText && <p className="c-tournament-information">{userNextAvailabelPrizeText}</p>}
 					</Tabs.TabsContent>
 				</Tabs>
 			</div>
@@ -69,6 +87,16 @@ export class Tournament extends Component {
 Tournament.propTypes = {
 	fetchLeaders: PropTypes.func.isRequired,
 	fetchPrizes: PropTypes.func.isRequired,
+	leaders: PropTypes.arrayOf(PropTypes.shape({
+		position: PropTypes.number.isRequired,
+	})),
+	prizes: PropTypes.arrayOf(PropTypes.shape({
+		prize: PropTypes.number.isRequired,
+	})),
+	userNextAvailabelPrize: PropTypes.number.isRequired,
+	isUserInTopPrizeRange: PropTypes.bool.isRequired,
+	isUserPlayingTournament: PropTypes.bool.isRequired,
+	userId: PropTypes.number.isRequired,
 };
 
 export default connect(mapState, mapDispatch)(Tournament);

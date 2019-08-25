@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableHeader renders without crashing 1`] = `
+<th>
+   Table Header 
+</th>
+`;

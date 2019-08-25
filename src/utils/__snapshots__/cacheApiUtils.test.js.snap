@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`cacheApiUtils should cache the Api response 1`] = `
+Storage {
+  "GET_TOURNAMENT_LEADERS_REQUEST": "{\\"createdTimeStamp\\":1566735528409,\\"response\\":{\\"test\\":\\"test\\"}}",
+}
+`;
+
+exports[`cacheApiUtils should not cache the Api response when already cached 1`] = `
+Storage {
+  "GET_TOURNAMENT_LEADERS_REQUEST": "{\\"createdTimeStamp\\":1566735528409,\\"response\\":{\\"test\\":\\"test\\"}}",
+}
+`;
+
+exports[`cacheApiUtils should not cache the Api response when its not in toBeCachedApiResponse list 1`] = `Storage {}`;

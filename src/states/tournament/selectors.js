@@ -1,8 +1,7 @@
 import { createSelector } from 'reselect';
 import get from 'lodash/get';
-import reverse from 'lodash/reverse';
 import head from 'lodash/head';
-import findIndex from 'lodash/findIndex';
+
 import { getUserId } from '../userDetails/selectors';
 import { SHOW_TOP_LEADERS_LIMT } from '../../configs/config';
 
@@ -14,6 +13,7 @@ export const getPrizes = createSelector(getPrizeSelector, prizes => prizes.map((
 	const postionRange = (prize.toPosition - prize.fromPosition) > 0 ? `${prize.fromPosition}-${prize.toPosition}` : `${prize.fromPosition}`;
 	return {
 		...prize,
+		prize: prize.prize.toFixed(2),
 		range: postionRange,
 	};
 }));
@@ -26,27 +26,30 @@ export const getLeadersWithPosition = createSelector(getLeadersSelector,
 
 export const isUserPlayingTournament = createSelector(getLeadersSelector, getUserId, (leaders, userId) => leaders.some(leader => leader.playerId === userId));
 
-export const isUserAtTopPostion = createSelector(getLeadersWithPosition, getUserId, (getLeadersWithTheirPosition, userId) => get(head(getLeadersWithTheirPosition), 'playerId') === userId);
-
-
 export const getUserScore = createSelector(getLeadersWithPosition, getUserId, (getLeadersWithTheirPosition, userId) => getLeadersWithTheirPosition.find(leader => leader.playerId === userId));
 
-// Need to update
+export const isUserInTopPrizeRange = createSelector(getPrizes, getUserScore, (prizes, userScore) => {
+	const { fromPosition = '', toPosition = '' } = head(prizes) || {};
+	const userPosition = get(userScore, 'position', 0);
+	return fromPosition <= userPosition && toPosition >= userPosition;
+});
+
+
 export const positionToReachForNextPrize = (prizes, position) => {
 	const reversedPrizeList = [...prizes].reverse();
-
-	return get(reversedPrizeList.find(prize => prize.fromPosition < position), 'toPosition');
+	return get(reversedPrizeList.find(prize => prize.toPosition < position), 'toPosition');
 };
 
 
-export const getUserNextAvailabelPrize = createSelector(getLeadersWithPosition, getPrizes, getUserScore, getUserId, (leadersWithTheirPostion, prizes, userScore, userId) => {
-	const usersPosition = findIndex(leadersWithTheirPostion, { playerId: userId });
+export const getUserNextAvailabelPrize = createSelector(getLeadersWithPosition, getPrizes, getUserScore, (leadersWithTheirPostion, prizes, userScore) => {
+	const usersPosition = get(userScore, 'position', 0);
 	const userPostionToBeComparedWith = positionToReachForNextPrize(prizes, usersPosition);
+	console.log(userPostionToBeComparedWith);
 	return get(leadersWithTheirPostion[userPostionToBeComparedWith - 1], 'score', 0) - get(userScore, 'score', 0) + 1;
 });
 
 
-export const getPriceOnPosition = (prizes, position) => get(prizes.find(prize => (prize.fromPosition <= position && prize.toPosition >= position)), 'prize', '-');
+export const getPriceOnPosition = (prizes, position) => get(prizes.find(prize => (prize.fromPosition <= position && prize.toPosition >= position)), 'prize', '0.00');
 
 export const getTopLeaders = createSelector(getLeadersWithPosition, getPrizes, getUserScore, getUserId, (getLeadersWithTheirPosition, prizes, userScore, userId) => {
 	let topLeadersScore = getLeadersWithTheirPosition.slice(0, SHOW_TOP_LEADERS_LIMT);

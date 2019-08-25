@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs renders without crashing 1`] = `
+<nav
+  className="c-tab"
+>
+  Tabs Children
+</nav>
+`;

@@ -2,7 +2,7 @@ import './TabsLink.scss';
 import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import Button from '../Button/Button';
+import Button from '../../Button/Button';
 
 const TabsLink = ({ name, onClick, isActive = false }) => {
 	const className = classnames('c-tab-button',

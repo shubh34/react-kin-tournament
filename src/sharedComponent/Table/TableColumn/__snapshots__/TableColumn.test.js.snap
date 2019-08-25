@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableColumn renders without crashing 1`] = `
+<td>
+  <span
+    className="c-table-column"
+  >
+     TableColumn 
+  </span>
+</td>
+`;

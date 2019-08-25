@@ -2,7 +2,6 @@ export const toBeCachedApiResponse = [
 	'GET_TOURNAMENT_LEADERS_REQUEST',
 	'GET_TOURNAMENT_PRIZES_REQUEST',
 ];
-
 export const cacheApiResponse = (response) => {
 	const {
 		meta: { cacheKey = '' },

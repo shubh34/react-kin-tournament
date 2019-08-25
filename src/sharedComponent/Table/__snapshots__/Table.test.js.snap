@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table renders without crashing 1`] = `
+<table
+  className="c-table"
+>
+   Hie
+</table>
+`;

@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tournament renders without crashing 1`] = `
+<div
+  className="c-tournament"
+>
+  <Tabs>
+    <TabsLink
+      isActive={true}
+      name="Leaderboard"
+      onClick={[Function]}
+    />
+    <TabsLink
+      isActive={false}
+      name="Prizes"
+      onClick={[Function]}
+    />
+    <TabsContent>
+      <LeaderBoard
+        leaders={
+          Array [
+            Object {
+              "playerId": 3,
+              "position": 1,
+              "prize": "10836.00",
+              "score": 90,
+            },
+            Object {
+              "playerId": 18,
+              "position": 2,
+              "prize": "10836.00",
+              "score": 86,
+            },
+            Object {
+              "playerId": 2,
+              "position": 3,
+              "prize": "5483.00",
+              "score": 76,
+            },
+            Object {
+              "playerId": 1,
+              "position": 7,
+              "prize": "0.00",
+              "score": 28,
+            },
+          ]
+        }
+        userId={1}
+      />
+      <p
+        className="c-tournament-information"
+      >
+        Gain 44 points and win the next prize!
+      </p>
+    </TabsContent>
+  </Tabs>
+</div>
+`;
+
+exports[`Tournament should active prizes when prize tab is clicked 1`] = `
+<div
+  className="c-tournament"
+>
+  <Tabs>
+    <TabsLink
+      isActive={false}
+      name="Leaderboard"
+      onClick={[Function]}
+    />
+    <TabsLink
+      isActive={true}
+      name="Prizes"
+      onClick={[Function]}
+    />
+    <TabsContent>
+      <Prizes
+        prizes={
+          Array [
+            Object {
+              "fromPosition": 1,
+              "prize": 10836,
+              "range": "1",
+              "toPosition": 2,
+            },
+            Object {
+              "fromPosition": 3,
+              "prize": 5483,
+              "range": "2-3",
+              "toPosition": 3,
+            },
+            Object {
+              "fromPosition": 4,
+              "prize": 1079,
+              "range": "4-5",
+              "toPosition": 5,
+            },
+          ]
+        }
+      />
+      <p
+        className="c-tournament-information"
+      >
+        Gain 44 points and win the next prize!
+      </p>
+    </TabsContent>
+  </Tabs>
+</div>
+`;

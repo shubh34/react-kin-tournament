@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LeaderBoard should render leaders of tournament with no active user 1`] = `
+<Table>
+  <TableBody>
+    <TableRow>
+      <TableHeader
+        key="Pos"
+      >
+        Pos
+      </TableHeader>
+      <TableHeader
+        key="Score"
+      >
+        Score
+      </TableHeader>
+      <TableHeader
+        key="Prize"
+      >
+        Prize
+      </TableHeader>
+    </TableRow>
+    <TableRow
+      isActive={false}
+      key="1"
+    >
+      <TableColumn>
+        1.
+      </TableColumn>
+      <TableColumn>
+        90
+      </TableColumn>
+      <TableColumn>
+        <strong />
+      </TableColumn>
+    </TableRow>
+    <TableRow
+      isActive={false}
+      key="2"
+    >
+      <TableColumn>
+        2.
+      </TableColumn>
+      <TableColumn>
+        86
+      </TableColumn>
+      <TableColumn>
+        <strong />
+      </TableColumn>
+    </TableRow>
+    <TableRow
+      isActive={false}
+      key="3"
+    >
+      <TableColumn>
+        3.
+      </TableColumn>
+      <TableColumn>
+        76
+      </TableColumn>
+      <TableColumn>
+        <strong />
+      </TableColumn>
+    </TableRow>
+    <TableRow
+      isActive={false}
+      key="4"
+    >
+      <TableColumn>
+        4.
+      </TableColumn>
+      <TableColumn>
+        75
+      </TableColumn>
+      <TableColumn>
+        <strong />
+      </TableColumn>
+    </TableRow>
+  </TableBody>
+</Table>
+`;
+
+exports[`LeaderBoard should render leaders of tournament with user as active row 1`] = `
+<Table>
+  <TableBody>
+    <TableRow>
+      <TableHeader
+        key="Pos"
+      >
+        Pos
+      </TableHeader>
+      <TableHeader
+        key="Score"
+      >
+        Score
+      </TableHeader>
+      <TableHeader
+        key="Prize"
+      >
+        Prize
+      </TableHeader>
+    </TableRow>
+    <TableRow
+      isActive={false}
+      key="1"
+    >
+      <TableColumn>
+        1.
+      </TableColumn>
+      <TableColumn>
+        90
+      </TableColumn>
+      <TableColumn>
+        <strong />
+      </TableColumn>
+    </TableRow>
+    <TableRow
+      isActive={true}
+      key="2"
+    >
+      <TableColumn>
+        2.
+      </TableColumn>
+      <TableColumn>
+        86
+      </TableColumn>
+      <TableColumn>
+        <strong />
+      </TableColumn>
+    </TableRow>
+    <TableRow
+      isActive={false}
+      key="3"
+    >
+      <TableColumn>
+        3.
+      </TableColumn>
+      <TableColumn>
+        76
+      </TableColumn>
+      <TableColumn>
+        <strong />
+      </TableColumn>
+    </TableRow>
+    <TableRow
+      isActive={false}
+      key="4"
+    >
+      <TableColumn>
+        4.
+      </TableColumn>
+      <TableColumn>
+        75
+      </TableColumn>
+      <TableColumn>
+        <strong />
+      </TableColumn>
+    </TableRow>
+  </TableBody>
+</Table>
+`;
