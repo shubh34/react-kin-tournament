@@ -44,7 +44,6 @@ export const positionToReachForNextPrize = (prizes, position) => {
 export const getUserNextAvailabelPrize = createSelector(getLeadersWithPosition, getPrizes, getUserScore, (leadersWithTheirPostion, prizes, userScore) => {
 	const usersPosition = get(userScore, 'position', 0);
 	const userPostionToBeComparedWith = positionToReachForNextPrize(prizes, usersPosition);
-	console.log(userPostionToBeComparedWith);
 	return get(leadersWithTheirPostion[userPostionToBeComparedWith - 1], 'score', 0) - get(userScore, 'score', 0) + 1;
 });
 
