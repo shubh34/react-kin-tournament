@@ -28,7 +28,7 @@ exports[`Prizes should render prizes 1`] = `
       </TableColumn>
     </TableRow>
     <TableRow
-      key="2"
+      key="3"
     >
       <TableColumn>
         2-3

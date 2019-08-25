@@ -48,7 +48,7 @@ exports[`Tournament component did mount should call apis 1`] = `
         Object {
           "playerId": 18,
           "position": 2,
-          "prize": "5483.00",
+          "prize": "10836.00",
           "score": 86,
         },
         Object {
@@ -70,13 +70,13 @@ exports[`Tournament component did mount should call apis 1`] = `
         Object {
           "fromPosition": 1,
           "prize": "10836.00",
-          "range": "1",
-          "toPosition": 1,
+          "range": "1-2",
+          "toPosition": 2,
         },
         Object {
-          "fromPosition": 2,
+          "fromPosition": 3,
           "prize": "5483.00",
-          "range": "2-3",
+          "range": "3",
           "toPosition": 3,
         },
         Object {
@@ -188,7 +188,7 @@ exports[`Tournament component did mount should call apis 1`] = `
                     Object {
                       "playerId": 18,
                       "position": 2,
-                      "prize": "5483.00",
+                      "prize": "10836.00",
                       "score": 86,
                     },
                     Object {
@@ -309,7 +309,7 @@ exports[`Tournament component did mount should call apis 1`] = `
                                   className="c-table-column"
                                 >
                                   <strong>
-                                    5483.00
+                                    10836.00
                                   </strong>
                                 </span>
                               </td>
@@ -397,7 +397,9 @@ exports[`Tournament component did mount should call apis 1`] = `
                   </table>
                 </Table>
               </LeaderBoard>
-              <p>
+              <p
+                className="c-tournament-information"
+              >
                 Gain 46 points and win the next prize!
               </p>
             </div>
@@ -437,7 +439,7 @@ exports[`Tournament renders without crashing 1`] = `
             Object {
               "playerId": 18,
               "position": 2,
-              "prize": "5483.00",
+              "prize": "10836.00",
               "score": 86,
             },
             Object {
@@ -456,7 +458,9 @@ exports[`Tournament renders without crashing 1`] = `
         }
         userId={1}
       />
-      <p>
+      <p
+        className="c-tournament-information"
+      >
         Gain 46 points and win the next prize!
       </p>
     </TabsContent>

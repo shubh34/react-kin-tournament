@@ -63,11 +63,10 @@ class Tournament extends Component {
 	render() {
 		const { activeTab } = this.state;
 		const {
-			leaders, userNextAvailabelPrize, isUserInTopPrizeRange, userId, prizes, isUserPlayingTournament,
+			leaders, userNextAvailabelPrize, isUserInTopPrizeRange, userId, prizes,
 		} = this.props;
 		const isLeaderboardActive = activeTab === tourmamentTabs.LEADERBOARD;
 		const userNextAvailabelPrizeText = content.gainNexAvaliablePrizeText.replace(':next-avail-prize', userNextAvailabelPrize);
-		const showNextAvailablePrize = isUserPlayingTournament && !isUserInTopPrizeRange;
 		return (
 			<div className="c-tournament">
 				<Tabs>
@@ -76,7 +75,7 @@ class Tournament extends Component {
 					<Tabs.TabsContent>
 						{isLeaderboardActive && <LeaderBoard leaders={leaders} userId={userId} />}
 						{!isLeaderboardActive && <Prizes prizes={prizes} />}
-						{showNextAvailablePrize && <p>{userNextAvailabelPrizeText}</p>}
+						{!isUserInTopPrizeRange && <p className="c-tournament-information">{userNextAvailabelPrizeText}</p>}
 					</Tabs.TabsContent>
 				</Tabs>
 			</div>

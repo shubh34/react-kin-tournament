@@ -55,7 +55,7 @@ describe('selectors', () => {
 			});
 			expect(isUserInTopPrizeRange(state)).toBe(false);
 		});
-		it('should return true when user is not playing the tournament', () => {
+		it('should return false when user is not playing the tournament', () => {
 			const state = getState({
 				userDetails: {
 					userId: userNotPatricipatingInTournament,
