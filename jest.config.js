@@ -10,4 +10,8 @@ module.exports = {
 	testURL: 'http://localhost',
 	transformIgnorePatterns: ['<rootDir>/node_modules/'],
 	verbose: false,
+	moduleNameMapper: {
+		'\\.(css|sass|scss)$': 'identity-obj-proxy',
+	},
+	snapshotSerializers: ['enzyme-to-json/serializer'],
 };

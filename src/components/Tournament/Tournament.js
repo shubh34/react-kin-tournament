@@ -31,8 +31,7 @@ const mapState = state => ({
 });
 
 // Question : should we clear setInterval on unmount
-
-export class Tournament extends Component {
+class Tournament extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -72,8 +71,8 @@ export class Tournament extends Component {
 		return (
 			<div className="c-tournament">
 				<Tabs>
-					<Tabs.TabsLink name={tourmamentTabs.LEADERBOARD} onClick={() => { this.setState({ activeTab: tourmamentTabs.LEADERBOARD }); }} isActive={isLeaderboardActive} />
-					<Tabs.TabsLink name={tourmamentTabs.PRIZES} onClick={() => { this.setState({ activeTab: tourmamentTabs.PRIZES }); }} isActive={!isLeaderboardActive} />
+					<Tabs.TabsLink name={tourmamentTabs.LEADERBOARD} onClick={this.onTablinkChange} isActive={isLeaderboardActive} />
+					<Tabs.TabsLink name={tourmamentTabs.PRIZES} onClick={this.onTablinkChange} isActive={!isLeaderboardActive} />
 					<Tabs.TabsContent>
 						{isLeaderboardActive && <LeaderBoard leaders={leaders} userId={userId} />}
 						{!isLeaderboardActive && <Prizes prizes={prizes} />}
@@ -87,6 +86,16 @@ export class Tournament extends Component {
 Tournament.propTypes = {
 	fetchLeaders: PropTypes.func.isRequired,
 	fetchPrizes: PropTypes.func.isRequired,
+	leaders: PropTypes.arrayOf(PropTypes.shape({
+		position: PropTypes.number.isRequired,
+	})),
+	prizes: PropTypes.arrayOf(PropTypes.shape({
+		prize: PropTypes.string.isRequired,
+	})),
+	userNextAvailabelPrize: PropTypes.number.isRequired,
+	isUserPlayingTournament: PropTypes.bool.isRequired,
+	isUserAtTopPostion: PropTypes.bool.isRequired,
+	userId: PropTypes.number.isRequired,
 };
 
 export default connect(mapState, mapDispatch)(Tournament);

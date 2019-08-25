@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button renders without crashing 1`] = `
+<button
+  className="c-button undefined"
+  id="button"
+  name="button"
+  onClick={[MockFunction]}
+  type="button"
+>
+  button
+</button>
+`;

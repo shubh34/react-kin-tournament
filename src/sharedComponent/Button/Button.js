@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Button = ({ name, onClick, className }) => (
-	<button type="button" className={`c-button ${className}`} onClick={onClick}>
+	<button type="button" className={`c-button ${className}`} id={name} name={name} onClick={onClick}>
 		{name}
 	</button>
 );
