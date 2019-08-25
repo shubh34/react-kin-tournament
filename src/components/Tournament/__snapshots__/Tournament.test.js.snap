@@ -23,7 +23,7 @@ exports[`Tournament renders without crashing 1`] = `
               "playerId": 3,
               "position": 1,
               "prize": "10836.00",
-              "score": 87,
+              "score": 90,
             },
             Object {
               "playerId": 18,
@@ -35,7 +35,7 @@ exports[`Tournament renders without crashing 1`] = `
               "playerId": 2,
               "position": 3,
               "prize": "5483.00",
-              "score": 75,
+              "score": 76,
             },
             Object {
               "playerId": 1,

@@ -28,7 +28,7 @@ exports[`LeaderBoard should render leaders of tournament with no active user 1`]
         1.
       </TableColumn>
       <TableColumn>
-        87
+        90
       </TableColumn>
       <TableColumn>
         <strong />
@@ -56,7 +56,7 @@ exports[`LeaderBoard should render leaders of tournament with no active user 1`]
         3.
       </TableColumn>
       <TableColumn>
-        75
+        76
       </TableColumn>
       <TableColumn>
         <strong />
@@ -108,7 +108,7 @@ exports[`LeaderBoard should render leaders of tournament with user as active row
         1.
       </TableColumn>
       <TableColumn>
-        87
+        90
       </TableColumn>
       <TableColumn>
         <strong />
@@ -136,7 +136,7 @@ exports[`LeaderBoard should render leaders of tournament with user as active row
         3.
       </TableColumn>
       <TableColumn>
-        75
+        76
       </TableColumn>
       <TableColumn>
         <strong />
