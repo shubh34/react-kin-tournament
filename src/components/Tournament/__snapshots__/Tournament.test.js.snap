@@ -1,416 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tournament component did mount should call apis 1`] = `
-<Connect(Tournament)
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [MockFunction] {
-        "calls": Array [
-          Array [
-            [Function],
-          ],
-          Array [
-            [Function],
-          ],
-        ],
-        "results": Array [
-          Object {
-            "type": "return",
-            "value": undefined,
-          },
-          Object {
-            "type": "return",
-            "value": undefined,
-          },
-        ],
-      },
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <Tournament
-    fetchLeaders={[Function]}
-    fetchPrizes={[Function]}
-    isUserInTopPrizeRange={false}
-    isUserPlayingTournament={true}
-    leaders={
-      Array [
-        Object {
-          "playerId": 3,
-          "position": 1,
-          "prize": "10836.00",
-          "score": 87,
-        },
-        Object {
-          "playerId": 18,
-          "position": 2,
-          "prize": "10836.00",
-          "score": 86,
-        },
-        Object {
-          "playerId": 2,
-          "position": 3,
-          "prize": "5483.00",
-          "score": 75,
-        },
-        Object {
-          "playerId": 1,
-          "position": 7,
-          "prize": "0.00",
-          "score": 28,
-        },
-      ]
-    }
-    prizes={
-      Array [
-        Object {
-          "fromPosition": 1,
-          "prize": "10836.00",
-          "range": "1-2",
-          "toPosition": 2,
-        },
-        Object {
-          "fromPosition": 3,
-          "prize": "5483.00",
-          "range": "3",
-          "toPosition": 3,
-        },
-        Object {
-          "fromPosition": 4,
-          "prize": "1079.00",
-          "range": "4-5",
-          "toPosition": 5,
-        },
-      ]
-    }
-    store={
-      Object {
-        "clearActions": [Function],
-        "dispatch": [MockFunction] {
-          "calls": Array [
-            Array [
-              [Function],
-            ],
-            Array [
-              [Function],
-            ],
-          ],
-          "results": Array [
-            Object {
-              "type": "return",
-              "value": undefined,
-            },
-            Object {
-              "type": "return",
-              "value": undefined,
-            },
-          ],
-        },
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      }
-    }
-    userId={1}
-    userNextAvailabelPrize={46}
-  >
-    <div
-      className="c-tournament"
-    >
-      <Tabs>
-        <nav
-          className="c-tab"
-        >
-          <TabsLink
-            isActive={true}
-            name="Leaderboard"
-            onClick={[Function]}
-          >
-            <Button
-              className="c-tab-button c-tab-button--active"
-              id="Leaderboard"
-              name="Leaderboard"
-              onClick={[Function]}
-              type="button"
-            >
-              <button
-                className="c-button c-tab-button c-tab-button--active"
-                id="Leaderboard"
-                name="Leaderboard"
-                onClick={[Function]}
-                type="button"
-              >
-                Leaderboard
-              </button>
-            </Button>
-          </TabsLink>
-          <TabsLink
-            isActive={false}
-            name="Prizes"
-            onClick={[Function]}
-          >
-            <Button
-              className="c-tab-button"
-              id="Prizes"
-              name="Prizes"
-              onClick={[Function]}
-              type="button"
-            >
-              <button
-                className="c-button c-tab-button"
-                id="Prizes"
-                name="Prizes"
-                onClick={[Function]}
-                type="button"
-              >
-                Prizes
-              </button>
-            </Button>
-          </TabsLink>
-          <TabsContent>
-            <div
-              className="c-tab-content"
-            >
-              <LeaderBoard
-                leaders={
-                  Array [
-                    Object {
-                      "playerId": 3,
-                      "position": 1,
-                      "prize": "10836.00",
-                      "score": 87,
-                    },
-                    Object {
-                      "playerId": 18,
-                      "position": 2,
-                      "prize": "10836.00",
-                      "score": 86,
-                    },
-                    Object {
-                      "playerId": 2,
-                      "position": 3,
-                      "prize": "5483.00",
-                      "score": 75,
-                    },
-                    Object {
-                      "playerId": 1,
-                      "position": 7,
-                      "prize": "0.00",
-                      "score": 28,
-                    },
-                  ]
-                }
-                userId={1}
-              >
-                <Table>
-                  <table
-                    className="c-table"
-                  >
-                    <TableBody>
-                      <tbody>
-                        <TableRow>
-                          <tr
-                            className="c-table-row"
-                          >
-                            <TableHeader
-                              key="Pos"
-                            >
-                              <th>
-                                Pos
-                              </th>
-                            </TableHeader>
-                            <TableHeader
-                              key="Score"
-                            >
-                              <th>
-                                Score
-                              </th>
-                            </TableHeader>
-                            <TableHeader
-                              key="Prize"
-                            >
-                              <th>
-                                Prize
-                              </th>
-                            </TableHeader>
-                          </tr>
-                        </TableRow>
-                        <TableRow
-                          isActive={false}
-                          key="1"
-                        >
-                          <tr
-                            className="c-table-row"
-                          >
-                            <TableColumn>
-                              <td>
-                                <span
-                                  className="c-table-column"
-                                >
-                                  1.
-                                </span>
-                              </td>
-                            </TableColumn>
-                            <TableColumn>
-                              <td>
-                                <span
-                                  className="c-table-column"
-                                >
-                                  87
-                                </span>
-                              </td>
-                            </TableColumn>
-                            <TableColumn>
-                              <td>
-                                <span
-                                  className="c-table-column"
-                                >
-                                  <strong>
-                                    10836.00
-                                  </strong>
-                                </span>
-                              </td>
-                            </TableColumn>
-                          </tr>
-                        </TableRow>
-                        <TableRow
-                          isActive={false}
-                          key="2"
-                        >
-                          <tr
-                            className="c-table-row"
-                          >
-                            <TableColumn>
-                              <td>
-                                <span
-                                  className="c-table-column"
-                                >
-                                  2.
-                                </span>
-                              </td>
-                            </TableColumn>
-                            <TableColumn>
-                              <td>
-                                <span
-                                  className="c-table-column"
-                                >
-                                  86
-                                </span>
-                              </td>
-                            </TableColumn>
-                            <TableColumn>
-                              <td>
-                                <span
-                                  className="c-table-column"
-                                >
-                                  <strong>
-                                    10836.00
-                                  </strong>
-                                </span>
-                              </td>
-                            </TableColumn>
-                          </tr>
-                        </TableRow>
-                        <TableRow
-                          isActive={false}
-                          key="3"
-                        >
-                          <tr
-                            className="c-table-row"
-                          >
-                            <TableColumn>
-                              <td>
-                                <span
-                                  className="c-table-column"
-                                >
-                                  3.
-                                </span>
-                              </td>
-                            </TableColumn>
-                            <TableColumn>
-                              <td>
-                                <span
-                                  className="c-table-column"
-                                >
-                                  75
-                                </span>
-                              </td>
-                            </TableColumn>
-                            <TableColumn>
-                              <td>
-                                <span
-                                  className="c-table-column"
-                                >
-                                  <strong>
-                                    5483.00
-                                  </strong>
-                                </span>
-                              </td>
-                            </TableColumn>
-                          </tr>
-                        </TableRow>
-                        <TableRow
-                          isActive={true}
-                          key="7"
-                        >
-                          <tr
-                            className="c-table-row c-table-row--active"
-                          >
-                            <TableColumn>
-                              <td>
-                                <span
-                                  className="c-table-column"
-                                >
-                                  7.
-                                </span>
-                              </td>
-                            </TableColumn>
-                            <TableColumn>
-                              <td>
-                                <span
-                                  className="c-table-column"
-                                >
-                                  28
-                                </span>
-                              </td>
-                            </TableColumn>
-                            <TableColumn>
-                              <td>
-                                <span
-                                  className="c-table-column"
-                                >
-                                  <strong>
-                                    0.00
-                                  </strong>
-                                </span>
-                              </td>
-                            </TableColumn>
-                          </tr>
-                        </TableRow>
-                      </tbody>
-                    </TableBody>
-                  </table>
-                </Table>
-              </LeaderBoard>
-              <p
-                className="c-tournament-information"
-              >
-                Gain 46 points and win the next prize!
-              </p>
-            </div>
-          </TabsContent>
-        </nav>
-      </Tabs>
-    </div>
-  </Tournament>
-</Connect(Tournament)>
-`;
-
 exports[`Tournament renders without crashing 1`] = `
 <div
   className="c-tournament"
@@ -461,7 +50,57 @@ exports[`Tournament renders without crashing 1`] = `
       <p
         className="c-tournament-information"
       >
-        Gain 46 points and win the next prize!
+        Gain 44 points and win the next prize!
+      </p>
+    </TabsContent>
+  </Tabs>
+</div>
+`;
+
+exports[`Tournament should active prizes when prize tab is clicked 1`] = `
+<div
+  className="c-tournament"
+>
+  <Tabs>
+    <TabsLink
+      isActive={false}
+      name="Leaderboard"
+      onClick={[Function]}
+    />
+    <TabsLink
+      isActive={true}
+      name="Prizes"
+      onClick={[Function]}
+    />
+    <TabsContent>
+      <Prizes
+        prizes={
+          Array [
+            Object {
+              "fromPosition": 1,
+              "prize": 10836,
+              "range": "1",
+              "toPosition": 2,
+            },
+            Object {
+              "fromPosition": 3,
+              "prize": 5483,
+              "range": "2-3",
+              "toPosition": 3,
+            },
+            Object {
+              "fromPosition": 4,
+              "prize": 1079,
+              "range": "4-5",
+              "toPosition": 5,
+            },
+          ]
+        }
+      />
+      <p
+        className="c-tournament-information"
+      >
+        Gain 44 points and win the next prize!
       </p>
     </TabsContent>
   </Tabs>

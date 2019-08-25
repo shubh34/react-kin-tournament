@@ -31,7 +31,8 @@ const mapState = state => ({
 });
 
 // Question : should we clear setInterval on unmount
-class Tournament extends Component {
+
+export class Tournament extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -63,10 +64,11 @@ class Tournament extends Component {
 	render() {
 		const { activeTab } = this.state;
 		const {
-			leaders, userNextAvailabelPrize, isUserInTopPrizeRange, userId, prizes,
+			leaders, userNextAvailabelPrize, isUserInTopPrizeRange, userId, prizes, isUserPlayingTournament,
 		} = this.props;
 		const isLeaderboardActive = activeTab === tourmamentTabs.LEADERBOARD;
 		const userNextAvailabelPrizeText = content.gainNexAvaliablePrizeText.replace(':next-avail-prize', userNextAvailabelPrize);
+		const showNextAvailablePrizeText = isUserPlayingTournament && !isUserInTopPrizeRange;
 		return (
 			<div className="c-tournament">
 				<Tabs>
@@ -75,7 +77,7 @@ class Tournament extends Component {
 					<Tabs.TabsContent>
 						{isLeaderboardActive && <LeaderBoard leaders={leaders} userId={userId} />}
 						{!isLeaderboardActive && <Prizes prizes={prizes} />}
-						{!isUserInTopPrizeRange && <p className="c-tournament-information">{userNextAvailabelPrizeText}</p>}
+						{showNextAvailablePrizeText && <p className="c-tournament-information">{userNextAvailabelPrizeText}</p>}
 					</Tabs.TabsContent>
 				</Tabs>
 			</div>
@@ -89,11 +91,11 @@ Tournament.propTypes = {
 		position: PropTypes.number.isRequired,
 	})),
 	prizes: PropTypes.arrayOf(PropTypes.shape({
-		prize: PropTypes.string.isRequired,
+		prize: PropTypes.number.isRequired,
 	})),
 	userNextAvailabelPrize: PropTypes.number.isRequired,
-	isUserPlayingTournament: PropTypes.bool.isRequired,
 	isUserInTopPrizeRange: PropTypes.bool.isRequired,
+	isUserPlayingTournament: PropTypes.bool.isRequired,
 	userId: PropTypes.number.isRequired,
 };
 

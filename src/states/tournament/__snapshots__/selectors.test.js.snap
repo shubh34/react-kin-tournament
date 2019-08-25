@@ -5,7 +5,7 @@ Array [
   Object {
     "playerId": 3,
     "position": 1,
-    "score": 87,
+    "score": 90,
   },
   Object {
     "playerId": 18,
@@ -15,7 +15,7 @@ Array [
   Object {
     "playerId": 2,
     "position": 3,
-    "score": 75,
+    "score": 76,
   },
   Object {
     "playerId": 5,
@@ -74,7 +74,7 @@ Array [
     "playerId": 3,
     "position": 1,
     "prize": "10836.00",
-    "score": 87,
+    "score": 90,
   },
   Object {
     "playerId": 18,
@@ -86,7 +86,7 @@ Array [
     "playerId": 2,
     "position": 3,
     "prize": "5483.00",
-    "score": 75,
+    "score": 76,
   },
   Object {
     "playerId": 5,
@@ -103,7 +103,7 @@ Array [
     "playerId": 3,
     "position": 1,
     "prize": "10836.00",
-    "score": 87,
+    "score": 90,
   },
   Object {
     "playerId": 18,
@@ -115,7 +115,7 @@ Array [
     "playerId": 2,
     "position": 3,
     "prize": "5483.00",
-    "score": 75,
+    "score": 76,
   },
   Object {
     "playerId": 1,
@@ -132,7 +132,7 @@ Array [
     "playerId": 3,
     "position": 1,
     "prize": "10836.00",
-    "score": 87,
+    "score": 90,
   },
   Object {
     "playerId": 18,
@@ -144,7 +144,7 @@ Array [
     "playerId": 2,
     "position": 3,
     "prize": "5483.00",
-    "score": 75,
+    "score": 76,
   },
   Object {
     "playerId": 5,
@@ -161,7 +161,7 @@ Array [
     "playerId": 3,
     "position": 1,
     "prize": "10836.00",
-    "score": 87,
+    "score": 90,
   },
   Object {
     "playerId": 18,
@@ -173,7 +173,7 @@ Array [
     "playerId": 2,
     "position": 3,
     "prize": "5483.00",
-    "score": 75,
+    "score": 76,
   },
   Object {
     "playerId": 5,
@@ -184,10 +184,20 @@ Array [
 ]
 `;
 
+exports[`selectors getUserNextAvailabelPrize should return prize difference for the next prize 1`] = `2`;
+
+exports[`selectors getUserNextAvailabelPrize should return prize difference from last prize postion 1`] = `46`;
+
+exports[`selectors getUserNextAvailabelPrize should return prize in negative when user not at top postion but in top prize range 1`] = `-85`;
+
+exports[`selectors getUserNextAvailabelPrize should return prize in negative when user top postion 1`] = `-89`;
+
+exports[`selectors getUserNextAvailabelPrize should return undef 1`] = `1`;
+
 exports[`selectors getUserScore should return user score 1`] = `
 Object {
   "playerId": 3,
   "position": 1,
-  "score": 87,
+  "score": 90,
 }
 `;

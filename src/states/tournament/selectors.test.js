@@ -1,5 +1,5 @@
 import {
-	getPrizes, getLeadersWithPosition, isUserPlayingTournament, getUserScore, isUserInTopPrizeRange, positionToReachForNextPrize, getPriceOnPosition, getTopLeaders,
+	getPrizes, getLeadersWithPosition, isUserPlayingTournament, getUserScore, isUserInTopPrizeRange, positionToReachForNextPrize, getPriceOnPosition, getTopLeaders, getUserNextAvailabelPrize,
 } from './selectors';
 import { defaultLeaders } from '../../../tests/leaders';
 import { defaultPrizes } from '../../../tests/prizes';
@@ -202,5 +202,53 @@ describe('selectors', () => {
 			});
 			expect(getTopLeaders(state)).toMatchSnapshot();
 		});
+	});
+	describe('getUserNextAvailabelPrize', () => {
+		it('should return undef', () => {
+			// userid -100 not participating
+			const state = getState({
+				userDetails: {
+					userId: userNotPatricipatingInTournament,
+				},
+			});
+			expect(getUserNextAvailabelPrize(state)).toMatchSnapshot();
+		});
+		it('should return prize difference from last prize postion', () => {
+			// userid 1 in postion below 5
+			const state = getState({
+				userDetails: {
+					userId: userParticipatingInTournament,
+				},
+			});
+			expect(getUserNextAvailabelPrize(state)).toMatchSnapshot();
+		});
+		it('should return prize difference for the next prize', () => {
+			// userid 5 in top 4
+			const state = getState({
+				userDetails: {
+					userId: inTopFourUserId,
+				},
+			});
+			expect(getUserNextAvailabelPrize(state)).toMatchSnapshot();
+		});
+
+		it('should return prize in negative when user top postion', () => {
+			// userid 3 in positon 1
+			const state = getState({
+				userDetails: {
+					userId: topUserId,
+				},
+			});
+			expect(getUserNextAvailabelPrize(state)).toMatchSnapshot();
+		});
+		it('should return prize in negative when user not at top postion but in top prize range', () => {
+			// userid 3 in positon 1
+			const state = getState({
+				userDetails: {
+					userId: userInTopPrizeRange,
+				},
+			});
+			expect(getUserNextAvailabelPrize(state)).toMatchSnapshot();
+		});	
 	});
 });

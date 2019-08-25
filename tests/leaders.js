@@ -1,7 +1,7 @@
 export const defaultLeaders = [
 	{
 		playerId: 3,
-		score: 87,
+		score: 90,
 	},
 	{
 		playerId: 18,
@@ -9,7 +9,7 @@ export const defaultLeaders = [
 	},
 	{
 		playerId: 2,
-		score: 75,
+		score: 76,
 	},
 	{
 		playerId: 5,
