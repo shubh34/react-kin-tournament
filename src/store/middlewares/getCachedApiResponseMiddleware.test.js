@@ -87,10 +87,10 @@ describe('getCachedApiResponseMiddleware', () => {
 
 			}),
 		);
-    });
-    
-    it('should clear the sessionStorage api cached createdTimeStamp is more than API_CACHE_TIMER', () => {
-		const { middleware, next } = setup();
+	});
+
+	it('should clear the sessionStorage api cached createdTimeStamp is more than API_CACHE_TIMER', () => {
+		const { middleware } = setup();
 
 		const action = {
 			[RSAA]: {
