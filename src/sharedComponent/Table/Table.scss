@@ -3,3 +3,6 @@
     table-layout: fixed;
     border-spacing: 0 8px;
 }
+.c-table tr:first-child {
+    background: transparent;
+ }

@@ -49,7 +49,7 @@ export class Tournament extends Component {
 
 	render() {
 		const { activeTab } = this.state;
-		const { leaders, userNextAvailabelPrize, isUserAtTopPostion, userId } = this.props;
+		const { leaders, userNextAvailabelPrize, isUserAtTopPostion, userId, prizes } = this.props;
 		const isLeaderboardActive = activeTab === tourmamentTabs.LEADERBOARD;
 		return (
 			<div className="c-tournament">
@@ -58,11 +58,10 @@ export class Tournament extends Component {
 					<Tabs.TabsLink name="Prizes" onClick={() => { this.setState({ activeTab: tourmamentTabs.PRIZES }); }} isActive={!isLeaderboardActive} />
 					<Tabs.TabsContent>
 						{isLeaderboardActive && <LeaderBoard leaders={leaders} userId={userId} />}
-						{!isLeaderboardActive && <Prizes />}
+						{!isLeaderboardActive && <Prizes prizes={prizes}  />}
 						{!isUserAtTopPostion && <h2>{`Gain ${userNextAvailabelPrize} points and win the next prize!`}</h2>}
 					</Tabs.TabsContent>
 				</Tabs>
-
 			</div>
 		);
 	}
