@@ -1,6 +1,5 @@
 import { createSelector } from 'reselect';
 import get from 'lodash/get';
-import reverse from 'lodash/reverse';
 import head from 'lodash/head';
 import findIndex from 'lodash/findIndex';
 import { getUserId } from '../userDetails/selectors';
@@ -14,6 +13,7 @@ export const getPrizes = createSelector(getPrizeSelector, prizes => prizes.map((
 	const postionRange = (prize.toPosition - prize.fromPosition) > 0 ? `${prize.fromPosition}-${prize.toPosition}` : `${prize.fromPosition}`;
 	return {
 		...prize,
+		prize: prize.prize.toFixed(2),
 		range: postionRange,
 	};
 }));
@@ -46,7 +46,7 @@ export const getUserNextAvailabelPrize = createSelector(getLeadersWithPosition, 
 });
 
 
-export const getPriceOnPosition = (prizes, position) => get(prizes.find(prize => (prize.fromPosition <= position && prize.toPosition >= position)), 'prize', '-');
+export const getPriceOnPosition = (prizes, position) => get(prizes.find(prize => (prize.fromPosition <= position && prize.toPosition >= position)), 'prize', '0.00');
 
 export const getTopLeaders = createSelector(getLeadersWithPosition, getPrizes, getUserScore, getUserId, (getLeadersWithTheirPosition, prizes, userScore, userId) => {
 	let topLeadersScore = getLeadersWithTheirPosition.slice(0, SHOW_TOP_LEADERS_LIMT);
