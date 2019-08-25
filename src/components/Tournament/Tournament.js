@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchTournamentLeaders, fetchTournamentPrizes } from '../../states/tournament/actions';
 import {
-	getPrizes, getTopLeaders, isUserAtTopPostion, getUserNextAvailabelPrize, isUserPlayingTournament,
+	getPrizes, getTopLeaders, isUserInTopPrizeRange, getUserNextAvailabelPrize, isUserPlayingTournament,
 } from '../../states/tournament/selectors';
 import { API_CACHE_TIMER } from '../../configs/config';
 import Tabs from '../../sharedComponent/Tabs';
@@ -26,7 +26,7 @@ const mapState = state => ({
 	prizes: getPrizes(state),
 	leaders: getTopLeaders(state),
 	isUserPlayingTournament: isUserPlayingTournament(state),
-	isUserAtTopPostion: isUserAtTopPostion(state),
+	isUserInTopPrizeRange: isUserInTopPrizeRange(state),
 	userNextAvailabelPrize: getUserNextAvailabelPrize(state),
 });
 
@@ -63,11 +63,11 @@ class Tournament extends Component {
 	render() {
 		const { activeTab } = this.state;
 		const {
-			leaders, userNextAvailabelPrize, isUserAtTopPostion, userId, prizes, isUserPlayingTournament,
+			leaders, userNextAvailabelPrize, isUserInTopPrizeRange, userId, prizes, isUserPlayingTournament,
 		} = this.props;
 		const isLeaderboardActive = activeTab === tourmamentTabs.LEADERBOARD;
 		const userNextAvailabelPrizeText = content.gainNexAvaliablePrizeText.replace(':next-avail-prize', userNextAvailabelPrize);
-		const showNextAvailablePrize = isUserPlayingTournament && !isUserAtTopPostion;
+		const showNextAvailablePrize = isUserPlayingTournament && !isUserInTopPrizeRange;
 		return (
 			<div className="c-tournament">
 				<Tabs>
@@ -94,7 +94,7 @@ Tournament.propTypes = {
 	})),
 	userNextAvailabelPrize: PropTypes.number.isRequired,
 	isUserPlayingTournament: PropTypes.bool.isRequired,
-	isUserAtTopPostion: PropTypes.bool.isRequired,
+	isUserInTopPrizeRange: PropTypes.bool.isRequired,
 	userId: PropTypes.number.isRequired,
 };
 

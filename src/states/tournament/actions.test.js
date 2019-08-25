@@ -5,6 +5,7 @@ import thunk from 'redux-thunk';
 import {
 	fetchTournamentLeaders, fetchTournamentPrizes, createFetchPrizesRSSAAction, createFetchLeaderRSSAAction,
 } from './actions';
+
 import { cacheApiResponse } from '../../utils/cacheApiUtils';
 
 jest.mock('../../utils/cacheApiUtils');

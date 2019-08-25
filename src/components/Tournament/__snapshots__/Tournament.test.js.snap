@@ -35,7 +35,7 @@ exports[`Tournament component did mount should call apis 1`] = `
   <Tournament
     fetchLeaders={[Function]}
     fetchPrizes={[Function]}
-    isUserAtTopPostion={false}
+    isUserInTopPrizeRange={false}
     isUserPlayingTournament={true}
     leaders={
       Array [

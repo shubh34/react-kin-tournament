@@ -2,12 +2,12 @@ export const defaultPrizes = [
 	{
 		prize: 10836,
 		fromPosition: 1,
-		toPosition: 1,
+		toPosition: 2,
 		range: '1',
 	},
 	{
 		prize: 5483,
-		fromPosition: 2,
+		fromPosition: 3,
 		toPosition: 3,
 		range: '2-3',
 	},

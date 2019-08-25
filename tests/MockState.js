@@ -1,5 +1,5 @@
-import { defaultLeaders } from "./leaders";
-import { defaultPrizes } from "./prizes";
+import { defaultLeaders } from './leaders';
+import { defaultPrizes } from './prizes';
 
 export const defaultState = {
 	userDetails: {
@@ -23,7 +23,6 @@ export const tournamentState = {
 export const getMockState = (state = 'DEFAULT') => {
 	const mockStates = {
 		DEFAULT: tournamentState,
-
 	};
 	return mockStates[state];
 };
