@@ -37,7 +37,7 @@ module.exports = {
 	plugins: [
 		new CleanWebpackPlugin(),
 		new HtmlWebpackPlugin({
-			title: 'Rakuten Tv Demo',
+			title: 'Tournament',
 			template: './index.ejs',
 		}),
 	],
