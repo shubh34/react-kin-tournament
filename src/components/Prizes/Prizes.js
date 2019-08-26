@@ -29,7 +29,10 @@ const Prizes = ({ prizes }) => (
 
 
 Prizes.propTypes = {
-	prizes: PropTypes.arrayOf(PropTypes.object).isRequired,
+	prizes: PropTypes.arrayOf(PropTypes.shape({
+		prize: PropTypes.string.isRequired,
+		range: PropTypes.string.isRequired,
+	})),
 };
 
 export default Prizes;

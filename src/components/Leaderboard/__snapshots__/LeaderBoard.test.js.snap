@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LeaderBoard should render leaders of tournament with no active user 1`] = `
+exports[`Leaderboard should render leaders of tournament with no active user 1`] = `
 <Table>
   <TableBody>
     <TableRow>
@@ -80,7 +80,7 @@ exports[`LeaderBoard should render leaders of tournament with no active user 1`]
 </Table>
 `;
 
-exports[`LeaderBoard should render leaders of tournament with user as active row 1`] = `
+exports[`Leaderboard should render leaders of tournament with user as active row 1`] = `
 <Table>
   <TableBody>
     <TableRow>

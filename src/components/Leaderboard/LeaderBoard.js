@@ -31,7 +31,11 @@ const LeaderBoard = ({ leaders, userId }) => (
 
 
 LeaderBoard.propTypes = {
-	leaders: PropTypes.arrayOf(PropTypes.object).isRequired,
+	leaders: PropTypes.arrayOf(PropTypes.shape({
+		position: PropTypes.number.isRequired,
+		score: PropTypes.number.isRequired,
+		prize: PropTypes.string.isRequired,
+	})),
 	userId: PropTypes.number.isRequired,
 };
 

@@ -4,7 +4,7 @@ export const toBeCachedApiResponse = [
 ];
 export const cacheApiResponse = (response) => {
 	const {
-		meta: { cacheKey = '' },
+		meta: { cacheKey = '' } = {},
 		payload,
 	} = response;
 	if (toBeCachedApiResponse.includes(cacheKey) && !sessionStorage.getItem(cacheKey)) {

@@ -88,9 +88,12 @@ Tournament.propTypes = {
 	fetchPrizes: PropTypes.func.isRequired,
 	leaders: PropTypes.arrayOf(PropTypes.shape({
 		position: PropTypes.number.isRequired,
+		score: PropTypes.number.isRequired,
+		prize: PropTypes.string.isRequired,
 	})),
 	prizes: PropTypes.arrayOf(PropTypes.shape({
-		prize: PropTypes.number.isRequired,
+		prize: PropTypes.string.isRequired,
+		range: PropTypes.string.isRequired,
 	})),
 	userNextAvailabelPrize: PropTypes.number.isRequired,
 	isUserInTopPrizeRange: PropTypes.bool.isRequired,
