@@ -1,9 +1,9 @@
-This project is a small tourname web application where user can see the leaders board and thier position in the tournament
-The user can also see the price offered at different postion.
+This project is a small tournament web application where user can see the leaderboard and his/her position in the tournament
+he/she can also see the price offered at different postion.
 
 ## Project Setup
-- unzip the folder and open it in any IDE
-- Install the dependency using `npm install` install node if it complains
+- Unzip the folder and open it in any IDE like Visual studio code
+- Install the dependencies using `npm install` install node if it complains
 - Run the application using `npm start`
 - Build the production application using `npm build`
 
@@ -31,7 +31,7 @@ Builds the app for production to the `build` folder.
 Will format the source file.
 
 ### `npm run lint`
-will show linting issue
+Will show linting issue
 
 ### `npm run coverage`
 Will provide the test coverage
@@ -39,13 +39,13 @@ Will provide the test coverage
 ## Folder Structure
 
 
-- `coverage`: output folder for generated code coverage reports.
+- `coverage`: output folder for test coverage reports.
 - `dist`: production build of application.
 - `src`: source code of project.
-    - `components`- list of all components. Each component has its own css and test file.
+    - `components`- list of all components. Each component has its own scss and test file.
     - `configs` - configuration properties.
     - `constants` - string constants.
-    - `sharedComponents` - resuable components. Each resuable component has its own css and test file.
+    - `sharedComponents` - resuable components. Each resuable component has its own scss and test file.
     - `states` - redux states that includes action, selector, reducer and their tests
     - `store` - redux setup combine reducer and store initialisation
     - `utils` - global resuable functions
@@ -56,19 +56,19 @@ React, Redux, Jest, Enzyme, Webpack, Prettier, Eslint
 
 ## Requirement
 - `Tabs`
-    - `Highlighted active tab component`
-    -  `switchagle and shoe content of active tab`
+    - `Highlight active tab component`
+    -  `Switchable and shows content of active tab`
 - `Leaderboard`
-    - `Diplayed in tab form with headers pos, score and prize`
-    - `Display top three players and the current user postion and if user is not a part display top 4`
+    - `Diplay in tab form with headers pos, score and prize`
+    - `Display top three players and the current user postion (if user is not a part display top four)`
     - `User details will be highlighted`
-    - `show points to reach to next available prize, hide when user at top position`
+    - `Show points to reach to next available prize, hide when user at top position`
 - `Prizes`
-     - `Diplayed in tab form with headers Positions, Prize`
+     - `Diplay in tab form with headers Positions, Prize`
 - `Caching`
-    - `Api Response is cached for 3 mins. no api is called for next 3 mins after api call`
+    - `The data fetched from API is cached fro 3 mins. No additional Api is called even the page is refreshed during this time`
 
 
 ## Assumptions
-- `Leaderboard :  when user positon is not in the prize range show 0.00 in prize column for the user row`
-- `when user is in top prize range hide next available prize points`
+- `Leaderboard : When user's positon is not in the prize range show 0.00 in prize column for the user row`
+- `When user is in top prize range hide next available prize points`
