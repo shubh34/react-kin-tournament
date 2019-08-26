@@ -60,7 +60,6 @@ export class Tournament extends Component {
 		fetchPrizes();
 	}
 
-
 	render() {
 		const { activeTab } = this.state;
 		const {

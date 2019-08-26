@@ -20,7 +20,6 @@ const Prizes = ({ prizes }) => (
 						<strong>
 							{prize.prize}
 						</strong>
-
 					</Table.Column>
 				</Table.Row>
 			))}

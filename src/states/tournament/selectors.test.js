@@ -249,6 +249,6 @@ describe('selectors', () => {
 				},
 			});
 			expect(getUserNextAvailabelPrize(state)).toMatchSnapshot();
-		});	
+		});
 	});
 });

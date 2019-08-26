@@ -9,7 +9,7 @@
     "build": "webpack --mode production",
     "format": "prettier --config ./.prettierrc --write ./src/**/*.js",
     "lint": "esw ./src --color",
-    "test:coverage": "jest -- --coverage"
+    "test:coverage": "npm test -- --coverage"
   },
   "repository": {
     "type": "git",

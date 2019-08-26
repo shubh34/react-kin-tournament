@@ -14,7 +14,7 @@ const setUp = (setUpProps = {}, container = shallow) => {
 	return { wrapper, props };
 };
 
-describe('LeaderBoard', () => {
+describe('Leaderboard', () => {
 	it('should render leaders of tournament with user as active row', () => {
 		const { wrapper } = setUp();
 		expect(wrapper).toMatchSnapshot();

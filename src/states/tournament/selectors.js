@@ -5,16 +5,16 @@ import head from 'lodash/head';
 import { getUserId } from '../userDetails/selectors';
 import { SHOW_TOP_LEADERS_LIMT } from '../../configs/config';
 
-export const getPrizeSelector = state => get(state, 'tournament.prizes', []);
+export const getPrizesSelector = state => get(state, 'tournament.prizes', []);
 
 export const getLeadersSelector = state => get(state, 'tournament.leaders', []);
 
-export const getPrizes = createSelector(getPrizeSelector, prizes => prizes.map((prize) => {
-	const postionRange = (prize.toPosition - prize.fromPosition) > 0 ? `${prize.fromPosition}-${prize.toPosition}` : `${prize.fromPosition}`;
+export const getPrizes = createSelector(getPrizesSelector, prizes => prizes.map((prize) => {
+	const positionRange = (prize.toPosition - prize.fromPosition) > 0 ? `${prize.fromPosition}-${prize.toPosition}` : `${prize.fromPosition}`;
 	return {
 		...prize,
 		prize: prize.prize.toFixed(2),
-		range: postionRange,
+		range: positionRange,
 	};
 }));
 

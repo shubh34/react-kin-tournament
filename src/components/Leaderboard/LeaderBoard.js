@@ -6,7 +6,6 @@ import { leaderBoardHeaders } from '../../configs/config';
 
 const LeaderBoard = ({ leaders, userId }) => (
 	<Table>
-
 		<Table.Body>
 			<Table.Row>
 				{leaderBoardHeaders.map(header => <Table.Header key={header}>{header}</Table.Header>)}
@@ -23,7 +22,6 @@ const LeaderBoard = ({ leaders, userId }) => (
 						<strong>
 							{leader.prize}
 						</strong>
-
 					</Table.Column>
 				</Table.Row>
 			))}
